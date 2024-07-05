@@ -1,0 +1,94 @@
+﻿@model ProductModel
+
+<div class="detail">
+    <div><img  src="~/images/@Model.Image" /></div>
+    <div class="product_name">
+        <h2>@Model.Brand @Model.Model</h2>
+    </div>
+	<h3>Краткое описание:</h3>
+    <div class="product-text">
+        @Model.Description
+    </div>
+    <div class="product-category1">
+        <a>Категория: @Model.Category</a>
+    </div>
+	@if (Model.Caliber != null)
+	{
+		<div class="product-unique">
+			Калибр: @Model.Caliber мм.
+		</div>
+	}
+	@if (Model.Cartridge != null)
+	{
+		<div class="product-unique">
+			Тип патрона: @Model.Cartridge
+		</div>
+	}
+	@if (Model.Clip != null)
+	{
+		@if (Model.Clip == 1)
+		{
+			<div class="product-unique">
+				Магазин патрон: Есть
+			</div>
+		}
+		else
+		{
+			<div class="product-unique">
+				Магазин патрон: Нету
+			</div>
+		}
+	}
+	@if (Model.Pneumatics != null)
+	{
+		<div class="product-unique">
+			Тип пневматики: @Model.Pneumatics
+		</div>
+	}
+	@if (Model.Power != null)
+	{
+		<div class="product-unique">
+			Мощность: @Model.Power Дж.
+		</div>
+	}
+	@if (Model.Bullet != null)
+	{
+		<div class="product-unique">
+			Тип пули: @Model.Bullet
+		</div>
+	}
+	@if (Model.Blade != null)
+	{
+		<div class="product-unique">
+			Материал клинка: @Model.Blade
+		</div>
+	}
+	@if (Model.Handle != null)
+	{
+		<div class="product-unique">
+			Рукоять: @Model.Handle
+		</div>
+	}
+	@if (Model.Lenght != null)
+	{
+		<div class="product-unique">
+			Длина клинка: @Model.Lenght мм.
+		</div>
+	}
+	@if (Model.Range != null)
+	{
+		<div class="product-unique">
+			Дальность стрельбы: @Model.Range м.
+		</div>
+	}
+	@if (Model.Weapon != null)
+	{
+		<div class="product-unique">
+			Тип ношения оружия: @Model.Weapon тип
+		</div>
+	}
+	<div class="product_price">
+        Цена: @Model.Price<span> &#8381</span>
+    </div>
+
+</div>

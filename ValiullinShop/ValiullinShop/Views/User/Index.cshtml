@@ -1,0 +1,27 @@
+﻿@model UserModel
+
+<div class="authlog">
+	<div class="main-user">
+		<div class="login-user">
+			<form asp-controller="User" asp-action="Index" method="post" class="form-user">
+				@if (!string.IsNullOrWhiteSpace(Model.Error))
+				{
+					<label class="label-user login" for="chk" aria-hidden="true">
+						<h6 style="color: red;">@Model.Error</h6>
+                        <div>Вход</div>
+					</label>
+				}
+				else
+				{
+					<label class="label-user" for="chk" aria-hidden="true">Вход</label>
+				}
+				<input class="input-user" type="text" name="Login" placeholder="Логин" required="">
+				<input class="input-user" type="password" name="Password" placeholder="Пароль" required="">
+				<button>Войти</button>
+			</form>
+			<form asp-controller="User" asp-action="Reg" class="form-user">
+				<button type="submit">Зарегистрироваться</button>
+			</form>
+		</div>
+	</div>
+</div>

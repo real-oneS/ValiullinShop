@@ -1,0 +1,33 @@
+﻿@model List<ProductModel>
+<div class ="create1">
+	<button class="list" onclick="location.href='/Admin/ListOfUsers'">Список пользователей</button>
+</div>
+<div class ="create1">
+	<button class="dob" onclick="location.href='/Admin/Create'">Добавить</button>
+</div>
+<div class="flex">
+	
+    @foreach (var item in Model)
+    {
+        <div class="flex-item">
+            <div class="product_img"><img class="img_photo" src="~/images/@item.Image" /></div>
+            <div class="product_name">
+                <a href="@Url.Action("Details", new { id = item.Id })">
+                    <h2>@item.Brand @item.Model</h2>
+                </a>
+            </div>
+            <div class="product-text">
+                @item.Description
+            </div>
+            <div class="product-category">
+                <a>@item.Category</a>
+            </div>
+            <div class="product_price">
+                @item.Price<span>&#8381</span>
+            </div>
+			<button class="crud" onclick="location.href='/Admin/Update/@item.Id'">Редактировать</button>
+			<button class="crud1" onclick="if(confirm('Вы уверены, что хотите удалить данный продукт?')) { location.href='@Url.Action("Delete", new { id = @item.Id })' }">Удалить</button>
+        </div>
+    }
+
+</div>

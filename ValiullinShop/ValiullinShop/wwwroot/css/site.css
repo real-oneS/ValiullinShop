@@ -1,0 +1,622 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-image: url('../images/background.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body {
+    font-family: 'Arial';
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    vertical-align: baseline;
+    outline: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    justify-content: space-between;
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    order:2;
+}
+
+.flex-item {
+    width: 330px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border: 1px solid #000;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.product_img {
+    width: 300px;
+}
+
+.img_photo {
+    width: 300px;
+    height: 225px;
+}
+
+.product-text {
+    margin-bottom: 50px;
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+.product_name {
+    padding-left: 18px;
+    padding-right: 18px;
+    margin-bottom: 4px;
+    font-size: 23px;
+    font-weight: 600;
+    height: 70px;
+}
+
+
+.product_price {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.product-category {
+    font-size: 15px;
+    font-weight: 300;
+    width: 300px;
+    padding-left: 11px;
+    font-style: italic;
+    text-decoration: underline;
+    text-align: left;
+    margin-bottom:30px;
+}
+.detail {
+    width: 100%;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-left: 10px;
+    border: 1px solid #000;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    font-family: cursive;
+    background:white;
+}
+.detail img {
+    width:800px;
+}
+    .detail button {
+        font-family: cursive;
+    }
+.product-unique {
+    font-size: 18px;
+    font-weight: 300;
+    width: 550px;
+    text-align: -webkit-center;
+    display: block;
+    margin: 6px auto;
+    font-family: cursive;
+}
+.product-category1 {
+    font-size: 15px;
+    font-weight: 300;
+    padding-left: 11px;
+    font-style: italic;
+    text-decoration: underline;
+    margin-bottom: 30px;
+}
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 300px;
+}
+.buttonclicked {
+    background-color: orange;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 300px;
+}
+.cart-container {
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    background-color: #fff;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+    .cart-container h2 {
+        font-size: 26px; /* Увеличиваем размер шрифта заголовка */
+        margin-bottom: 20px;
+    }
+
+.cart-item {
+    display: flex;
+    margin-bottom: 20px;
+    border: 1px solid #000;
+    width: 1000px;
+}
+
+.cart-item-image {
+    width: 300px;
+    height: 250px;
+    object-fit: scale-down;
+    margin-right: 40px;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-name {
+    font-weight: 900;
+    margin-bottom: 20px; /* Уменьшаем отступ после названия товара */
+    font-size: 24px;
+}
+
+.cart-item-quantity {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.quantity-adjuster {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 20px; /* Увеличиваем размер шрифта */
+    margin: 0 10px;
+    color: #000; /* Изменяем цвет на более темный */
+}
+
+.quantity-input {
+    width: 60px; /* Увеличиваем ширину поля ввода */
+    padding: 7px; /* Увеличиваем внутренние отступы */
+    border: 1px solid #ccc;
+    font-size: 18px; /* Увеличиваем размер шрифта */
+}
+
+.remove-button {
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    font-size: 20px; /* Увеличиваем размер шрифта */
+    padding: 10px 16px; /* Увеличиваем внутренние отступы */
+}
+
+.cart-summary {
+    margin-top: 30px; /* Увеличиваем отступ сверху */
+    border-top: 1px solid #e0e0e0;
+    padding-top: 20px; /* Увеличиваем внутренние отступы */
+}
+
+    .cart-summary div {
+        margin-bottom: 15px; /* Увеличиваем отступы между элементами */
+        font-size: 22px; /* Увеличиваем размер шрифта */
+    }
+
+.order-button {
+    display: block;
+    width: 200px; /* Увеличиваем ширину кнопки */
+    text-align: center;
+    margin: 30px auto; /* Увеличиваем отступ сверху и центрируем кнопку */
+    padding: 15px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+    .order-button:hover {
+        background-color: #007bff;
+        color: #fff;
+    }
+.cart-item-desc {
+    margin-bottom: 20px;
+}
+.cart-button {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    width: 200px;
+    margin-bottom: 5px;
+}
+.cart-sum {
+    font-size: 18px;
+    margin-bottom:5px;
+}
+.order body {
+    font-family: Arial, sans-serif;
+    background-color:white;
+}
+
+.order form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.order form input, form select, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.order form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.order form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+}
+.order {
+    display: flex;
+    background-color: white;
+    width: auto;
+    border-radius: 30px;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.checkbox {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid #000;
+    padding: 5px;
+}
+.checkbox1 {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid #000;
+    padding: 5px;
+}
+.filter {
+    display: flex;
+    margin-right: 10px;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    order:1;
+}
+input[type=range] {
+    width: 100%;
+    margin: 10px 0;
+    -webkit-appearance: none;
+    border-radius: 5px;
+    background: #d3d3d3;
+    height: 15px;
+}
+
+    input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: #4CAF50;
+        cursor: pointer;
+    }
+.parameter-value {
+    margin-top: 10px;
+}
+.contain{
+    display:flex;
+}
+.cartHeader {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.cartContainer {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 1000px;
+}
+
+.cartButton {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 50%;
+    margin: 0 10px;
+    text-decoration: none;
+    color: #000;
+}
+
+    .cartButton:hover {
+        background-color: #f2f2f2;
+    }
+
+input[type="number"] {
+    width: 200px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+a.deleteButton {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    padding: 8px 0;
+    border-radius: 5px;
+    background-color: #ff5c5c;
+    color: #fff;
+    text-decoration: none;
+}
+
+    a.deleteButton:hover {
+        background-color: #e60000;
+    }
+
+.cartFlex {
+    background-color: #ffffff; /* Белый фон */
+    font-family: Arial, sans-serif; /* Устанавливаем базовый шрифт */
+    padding: 20px; /* Отступы вокруг содержимого */
+}
+.authlog {
+    background-color: #ffffff; /* Белый фон */
+    padding: 20px; /* Поля внутри контейнера */
+    border-radius: 10px;
+}
+
+/* Стили для формы входа и регистрации */
+.form-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    margin: auto;
+}
+
+.label-user {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.input-user {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.authlog button {
+    padding: 10px 20px;
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+    .authlog button:hover {
+        background-color: #45a049;
+    }
+.create {
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+    .create button {
+        width: 200px;
+    }
+
+.flex-item button {
+    margin-right: 25px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+}
+.crud {
+    background-color: orange;
+    width: 90%;
+    height: 45px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 18px;
+    color: white;
+    margin-bottom: 90px;
+}
+.crud1 {
+    background-color: red;
+    width: 90%;
+    height: 45px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 18px;
+    color: white;
+    margin-bottom: 90px;
+}
+.container1 {
+    width: 1500px;
+    margin: 0 auto;
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+    border-radius: 30px;
+    padding: 50px;
+}
+
+.user-card {
+    display: flex;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-card__name {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.user-card__email {
+    color: #666666;
+    margin: 10px;
+}
+
+.user-card__phone {
+    color: #666666;
+    margin: 10px;
+}
+
+.user-card__address {
+    color: #666666;
+    margin: 10px;
+    max-width: 100px;
+}
+
+.user-card__role {
+    color: #666666;
+    margin: 10px;
+}
+.container1 h1 {
+    display: flex;
+    font-size: 50px;
+    justify-content: center;
+    font-weight: bold;
+}
+.red {
+    border-radius: 5px;
+    background-color: orange;
+    color: white;
+    margin: 15px;
+    font-family: 'Bookman Old Style'
+}
+.del {
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    margin: 15px;
+    font-family: 'Bookman Old Style'
+}
+.dob {
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+    margin: 15px;
+    width:200px;
+    font-family: 'Bookman Old Style'
+}
+.list {
+    border-radius: 5px;
+    background-color: aqua;
+    color: black;
+    margin: 15px;
+    width: 200px;
+    font-family: 'Bookman Old Style'
+}
+.create1 {
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+.user-card__password {
+    color: #666666;
+    margin: 10px;
+    position: relative;
+}

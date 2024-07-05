@@ -1,0 +1,20 @@
+CREATE TABLE ValiullinShopDB (
+  Id INT IDENTITY(1,1) PRIMARY KEY,
+  Category nVARCHAR(MAX),
+  Brand nVARCHAR(MAX),
+  Model nVARCHAR(MAX),
+  Price INT,
+  Description nVARCHAR(MAX),
+  Image VARCHAR(100),
+  Caliber float,
+  Cartridge nvarchar(max),
+  Clip int,
+  Pneumatics nvarchar(max),
+  Power int,
+  Bullet nvarchar(max),
+  Blade nvarchar(max),
+  Handle nvarchar(max),
+  Lenght float,
+  Range int,
+  Weapon nvarchar(max)
+);

@@ -1,0 +1,43 @@
+﻿@model Cart;
+<div class="cartFlex">
+	@if (Model is not null)
+	{
+		<div class="cartHeader">Подтверждение заказа</div>
+		@foreach (var item in Model.Items)
+		{
+			<div class="cartContainer">
+				<div>Товар: @item.product.Model</div>
+				<div>Количество: @item.Count</div>
+				<div>Сумма: @item.Sum</div>
+			</div>
+		}
+		<div>Товаров в корзине: @Model.AllItemsCount</div>
+		<div>Всего на сумму: @Model.Sum</div>
+		<div class="cartHeader">Подтвердите ваши данные</div>
+		<div style="display: flex; flex-direction: column; justify-content: center;">
+			<div style="font-size: 20px; font-weight: 500;">Имя:</div>
+			<div>@ViewBag.OrderDetails.FirstName</div>
+			<div style="font-size: 20px; font-weight: 500;">Фамилия:</div>
+			<div>@ViewBag.OrderDetails.LastName</div>
+			<div style="font-size: 20px; font-weight: 500;">Отчество:</div>
+			<div>@ViewBag.OrderDetails.MiddleName</div>
+			<div style="font-size: 20px; font-weight: 500;">Ваш телефон:</div>
+			<div>@ViewBag.OrderDetails.Phone</div>
+			<div style="font-size: 20px; font-weight: 500;">Электронный адрес:</div>
+			<div>@ViewBag.OrderDetails.Email</div>
+			<div style="font-size: 20px; font-weight: 500;">Адрес доставки:</div>
+			<div>@ViewBag.OrderDetails.Address</div>
+			<div style="font-size: 20px; font-weight: 500;">Способ оплаты:</div>
+			@if (ViewBag.OrderDetails.PaymentMethod=="card")
+			{
+				<div>Кредитная карта</div>
+			}
+			@if (ViewBag.OrderDetails.PaymentMethod=="cash")
+			{
+				<div>Наличные</div>
+			}
+			
+		</div>
+		<a href="/Cart/Submit">Подтвердить заказ</a>
+	}
+</div>

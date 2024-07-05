@@ -1,0 +1,13 @@
+CREATE TABLE Users (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    firstname NVARCHAR(50) NOT NULL,
+    lastname NVARCHAR(50) NOT NULL,
+    middlename NVARCHAR(50)NOT NULL,
+    phone NVARCHAR(20)NOT NULL,
+    email NVARCHAR(100) NOT NULL,
+    address NVARCHAR(255)NULL,
+    role int NULL
+);
+ALTER TABLE Users
+ADD login NVARCHAR(50) NOT NULL,
+    password NVARCHAR(100) NOT NULL;

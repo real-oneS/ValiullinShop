@@ -1,0 +1,35 @@
+﻿@model UserModel
+<div class="authlog">
+	<div class="register-user">
+		@if (Model == null)
+		{
+			<form asp-controller="User" asp-action="Registration" method="post" class="form-user">
+			  <label class="label-user-p" for="chk" aria-hidden="true">Регистрация</label>
+			  <input class="input-user" type="text" name="FirstName" placeholder="Имя" required pattern="[^0-9]+" title="Поле не должно содержать цифры">
+			  <input class="input-user" type="text" name="LastName" placeholder="Фамилия" required pattern="[^0-9]+" title="Поле не должно содержать цифры">
+			  <input class="input-user" type="text" name="MiddleName" placeholder="Отчество" required pattern="[^0-9]+" title="Поле не должно содержать цифры">
+			  <input class="input-user" type="text" name="Login" placeholder="Логин" required="">
+			  <input class="input-user" type="email" name="Email" placeholder="Email" required="">
+			  <input class="input-user" type="password" name="Password" placeholder="Пароль" required="">
+			  <input class="input-user" type="password" name="Password2" placeholder="Подтверждение пароля" required="">
+			  <input class="input-user" type="tel" name="Phone" id="inputPhone" placeholder="+..." required pattern="\+?\d{11,12}" title="Введите номер в формате +123456789012">
+			  <button class="button-r">Зарегистрироваться</button>
+			</form>
+		}
+		else
+		{
+			<form asp-controller="User" asp-action="Registration" method="post" class="form-user">
+			  <label class="label-user-p" for="chk" aria-hidden="true">Регистрация</label>
+			  <input class="input-user" type="text" name="FirstName" placeholder="Имя" value="@Model.FirstName" required pattern="[^0-9]+" title="Поле не должно содержать цифры">
+			  <input class="input-user" type="text" name="LastName" placeholder="Фамилия" value="@Model.LastName" required pattern="[^0-9]+" title="Поле не должно содержать цифры">
+			  <input class="input-user" type="text" name="MiddleName" placeholder="Отчество" value="@Model.MiddleName" required pattern="[^0-9]+" title="Поле не должно содержать цифры">
+			  <input class="input-user" type="text" name="Login" placeholder="Логин" value="@Model.Login" required>
+			  <input class="input-user" type="email" name="Email" placeholder="Email" value="@Model.Email" required>
+			  <input class="input-user" type="password" name="Password" placeholder="Пароль" required>
+			  <input class="input-user" type="password" name="Password2" placeholder="Подтверждение пароля" required>
+			  <input class="input-user" type="tel" name="Phone" id="inputPhone" placeholder="+7 (___) ___--" value="@Model.Phone" required pattern="\+?\d{11,12}" title="Введите номер в формате +123456789012">
+			  <button class="button-r">Зарегистрироваться</button>
+			</form>
+		}
+	</div>
+</div>	

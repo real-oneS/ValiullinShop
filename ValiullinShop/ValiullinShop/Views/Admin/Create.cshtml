@@ -1,0 +1,108 @@
+﻿@model ValiullinShop.Models.Admin.AddProductViewModel
+
+<div class="cartFlex">
+		<form asp-action="Create" asp-controller="Admin" method="post">
+			<div class="cartFlex">
+				<div class="form-group">
+					<label asp-for="Id">Id:</label>
+					<input asp-for="Id" class="form-control" required readonly>
+					<span asp-validation-for="Id" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Category">Категория:</label>
+					<select id="Category" name="Category" required>
+						<option value="">Выберите категорию</option>
+						<option value="Огнестрельное оружие">Огнестрельное оружие</option>
+						<option value="Холодное оружие">Холодное оружие</option>
+						<option value="Пневматическое оружие">Пневматическое оружие</option>
+					</select>
+					<span asp-validation-for="Category" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Brand">Брэнд:</label>
+					<input asp-for="Brand" class="form-control" required>
+					<span asp-validation-for="Brand" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Model">Модель:</label>
+					<input asp-for="Model" class="form-control" required>
+					<span asp-validation-for="Model" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Price">Цена:</label>
+					<input asp-for="Price" class="form-control" required>
+					<span asp-validation-for="Price" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Description">Описание:</label>
+					<textarea asp-for="Description" class="form-control" required></textarea>
+					<span asp-validation-for="Description" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Image">Изображение:</label>
+					<input asp-for="Image" class="form-control" required>
+					<span asp-validation-for="Image" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Caliber">Калибр:</label>
+					<input asp-for="Caliber" class="form-control">
+					<span asp-validation-for="Caliber" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Cartridge">Тип патрона:</label>
+					<input asp-for="Cartridge" class="form-control">
+					<span asp-validation-for="Cartridge" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Clip">Магазин:</label>
+					<select id="Clip" name="Clip">
+						<option value="">Наличие магазина...</option>
+						<option value=0>Нет</option>
+						<option value=1>Есть</option>
+					</select>
+					<span asp-validation-for="Clip" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Power">Мощность:</label>
+					<input asp-for="Power" class="form-control">
+					<span asp-validation-for="Power" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Pneumatics">Тип пневматики:</label>
+					<input asp-for="Pneumatics" class="form-control">
+					<span asp-validation-for="Pneumatics" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Bullet">Тип пули:</label>
+					<input asp-for="Bullet" class="form-control">
+					<span asp-validation-for="Bullet" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Blade">Материал клинка:</label>
+					<input asp-for="Blade" class="form-control">
+					<span asp-validation-for="Blade" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Handle">Рукоять:</label>
+					<input asp-for="Handle" class="form-control">
+					<span asp-validation-for="Handle" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Lenght">Длина клинка:</label>
+					<input asp-for="Lenght" class="form-control">
+					<span asp-validation-for="Lenght" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Range">Дальность:</label>
+					<input asp-for="Range" class="form-control">
+					<span asp-validation-for="Range" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Weapon">Тип оружия:</label>
+					<input asp-for="Weapon" class="form-control">
+					<span asp-validation-for="Weapon" class="text-danger"></span>
+				</div>
+				<button type="submit" class="btn btn-primary">Сохранить</button>
+			</div>
+		</form>
+</div>

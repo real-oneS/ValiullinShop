@@ -1,0 +1,63 @@
+﻿@model ValiullinShop.Models.Admin.AddUserViewModel
+
+<div class="cartFlex">
+		<form asp-action="CreateUser" asp-controller="Admin" method="post">
+			<div class="cartFlex">
+				<div class="form-group">
+					<label asp-for="Id">Id:</label>
+					<input asp-for="Id" class="form-control" required readonly>
+					<span asp-validation-for="Id" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="FirstName">Имя:</label>
+					<input asp-for="FirstName" class="form-control" required>
+					<span asp-validation-for="FirstName" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="LastName">Фамилия:</label>
+					<input asp-for="LastName" class="form-control" required>
+					<span asp-validation-for="LastName" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="MiddleName">Отчество:</label>
+					<input asp-for="MiddleName" class="form-control" required>
+					<span asp-validation-for="MiddleName" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Email">Email:</label>
+					<input asp-for="Email" class="form-control" required>
+					<span asp-validation-for="Email" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Phone">Телефон:</label>
+					<input asp-for="Phone" class="form-control" required>
+					<span asp-validation-for="Phone" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Address">Адрес:</label>
+					<textarea asp-for="Address" class="form-control"></textarea>
+					<span asp-validation-for="Address" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Role">Админ права:</label>
+					<select id="Role" name="Role">
+						<option value="">(выберите)</option>
+						<option value=0>Отсуствуют</option>
+						<option value=1>Есть</option>
+					</select>
+					<span asp-validation-for="Role" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Login">Логин:</label>
+					<input asp-for="Login" class="form-control" required>
+					<span asp-validation-for="Login" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Password">Пароль:</label>
+					<input asp-for="Password" class="form-control" required>
+					<span asp-validation-for="Password" class="text-danger"></span>
+				</div>
+				<button type="submit" class="btn btn-primary">Сохранить</button>
+			</div>
+		</form>
+</div>

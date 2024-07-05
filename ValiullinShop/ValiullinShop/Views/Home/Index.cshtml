@@ -1,0 +1,305 @@
+﻿@model List<ProductModel>
+<div class="contain">
+    <div class="filter">
+        <form method="get" asp-action="Index" asp-controller="Home">
+            <select name="sort" id="myForm">
+                <!option value="">Нет</!option>
+                <!option value="Price"@(ViewBag.Sort == "Price" ? "selected" : "")>Сортировка по цене(по возрастанию)</!option>
+                <!option value="Pricedesc"@(ViewBag.Sort == "Pricedesc" ? "selected" : "")>Сортировка по цене(по убыванию)</!option>
+                <!option value="Name"@(ViewBag.Sort == "Name" ? "selected" : "")>Сортировка по названию(по возрастанию)</!option>
+                <!option value="Namedesc"@(ViewBag.Sort == "Namedesc" ? "selected" : "")>Сортировка по названию(по убыванию)</!option>
+            </select>
+            <input name="search" placeholder="Поиск товаров" value="@ViewBag.Search" />
+            <div class="checkbox">
+                <span>Оружие:</span>
+                <label>
+                    <input type="checkbox" name="categoryFire" value="Огнестрельное оружие" @(ViewBag.CategoryFire != null ? "checked" : "")>
+                    <span>Огнестрельное</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="categoryCold" value="Холодное оружие" @(ViewBag.CategoryCold != null ? "checked" : "")>
+                    <span>Холодное</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="categoryPnevma" value="Пневматическое оружие" @(ViewBag.CategoryPnevma != null ? "checked" : "")>
+                    <span>Пневматическое</span>
+                </label>
+            </div>
+            <div class="checkbox1">
+                <label for="minPrice">Минимальная стоимость:</label>
+                <input type="range" id="minPrice" name="minPrice" min="@ViewBag.MinValue" max="@(ViewBag.MaxValue + 200)" value="@ViewBag.MinValue" step="100" oninput="updateValue(this.value)">
+                <div id="minValue" class="parameter-value">Значение: <span id="minValue2"></span></div>
+                <label for="maxPrice">Максимальная стоимость:</label>
+                <input type="range" id="maxPrice" name="maxPrice" min="@ViewBag.MinValue" max="@(ViewBag.MaxValue + 200)" value="@ViewBag.MaxValue" step="100" oninput="updateValue2(this.value)">
+                <div id="maxValue" class="parameter-value">Значение: <span id="maxValue2"></span></div>
+
+                <script>
+                    // Функция для обновления значения ползунка
+                    function updateValue(value) {
+                        document.getElementById('minValue2').innerText = value;
+                    }
+                    function updateValue2(value) {
+                        document.getElementById('maxValue2').innerText = value;
+                    }
+                    var minPrice = $('#minPrice').val();
+                    var maxPrice = $('#maxPrice').val();
+                    $(minValue2).text(minPrice);
+                    $(maxValue2).text(maxPrice);
+
+                </script>
+            </div>
+            <div class="checkbox1" style="display: @(ViewBag.CategoryFire == "Огнестрельное оружие" || ViewBag.CategoryCold == "Холодное оружие" ? "flex" : "none");">
+                <span>Тип ношения:</span>
+                <label>
+                    <input type="checkbox" name="weaponHide" value="Скрытый" @(ViewBag.WeaponHide != null ? "checked" : "")>
+                    <span>Скрытый</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="weaponOpen" value="Открытый" @(ViewBag.WeaponOpen != null ? "checked" : "")>
+                    <span>Открытый</span>
+                </label>
+            </div>
+            <div class="checkbox1" style="display: @(ViewBag.CategoryFire == "Огнестрельное оружие" ? "flex" : "none");">
+                <span>Калибр:</span>
+                <label>
+                    <input type="checkbox" name="caliber545" value=5.45 @(ViewBag.Caliber545 != null ? "checked" : "")>
+                    <span>5.45</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="caliber12" value=12 @(ViewBag.Caliber12 != null ? "checked" : "")>
+                    <span>12</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="caliber308" value=308 @(ViewBag.Caliber308 != null ? "checked" : "")>
+                    <span>5.45</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="caliber762" value=7.62 @(ViewBag.Caliber762 != null ? "checked" : "")>
+                    <span>7.62</span>
+                </label>
+            </div>
+            <div class="checkbox1" style="display: @(ViewBag.CategoryFire == "Огнестрельное оружие" ? "flex" : "none");">
+                <span>Тип патрона:</span>
+                <label>
+                    <input type="checkbox" name="cartridgeVint" value="Винтовочный" @(ViewBag.CartridgeVint != null ? "checked" : "")>
+                    <span>Винтовочный</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="cartridgeVintPul" value="Винтовочно-пулемётный" @(ViewBag.CartridgeVintPul != null ? "checked" : "")>
+                    <span>Винтовочно-пулемётный</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="cartridgeRuj" value="Ружейный" @(ViewBag.CartridgeRuj != null ? "checked" : "")>
+                    <span>Ружейный</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="cartridgePro" value="Промежуточный" @(ViewBag.CartridgePro != null ? "checked" : "")>
+                    <span>Промежуточный</span>
+                </label>
+            </div>
+            <div class="checkbox1" style="display: @(ViewBag.CategoryFire == "Огнестрельное оружие" ? "flex" : "none");">
+                <span>Магазин:</span>
+                <label>
+                    <input type="checkbox" name="clip" value=0 @(ViewBag.Clip != null ? "checked" : "")>
+                    <span>Нет</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="clip" value=1 @(ViewBag.Clip != null ? "checked" : "")>
+                    <span>Есть</span>
+                </label>
+            </div>
+            <div class="checkbox1" style="display: @(ViewBag.CategoryCold == "Холодное оружие" ? "flex" : "none");">
+                <span>Материал клинка:</span>
+                <label>
+                    <input type="checkbox" name="bladeD2" value="Сталь D2" @(ViewBag.BladeD2 != null ? "checked" : "")>
+                    <span>Сталь D2</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="blade14" value="Сталь 14C28N" @(ViewBag.Blade14 != null ? "checked" : "")>
+                    <span>Сталь 14C28N</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="bladeAus" value="Сталь Aus-8A" @(ViewBag.BladeAus != null ? "checked" : "")>
+                    <span>Сталь Aus-8A</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="bladeXM" value="Сталь Х12МФ" @(ViewBag.BladeXM != null ? "checked" : "")>
+                    <span>Сталь Х12МФ</span>
+                </label>
+            </div>
+            <div class="checkbox1" style="display: @(ViewBag.CategoryCold == "Холодное оружие" ? "flex" : "none");">
+                <span>Рукоять:</span>
+                <label>
+                    <input type="checkbox" name="handleStk" value="Стеклотестолит" @(ViewBag.HandleStk != null ? "checked" : "")>
+                    <span>Стеклотестолит</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="handleRez" value="Резиновая" @(ViewBag.HandleRez != null ? "checked" : "")>
+                    <span>Резиновая</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="handleDer" value="Венге (дерево)" @(ViewBag.HandleDer != null ? "checked" : "")>
+                    <span>Венге (дерево)</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="handlePro" value="Прорезиновый пластик" @(ViewBag.HandlePro != null ? "checked" : "")>
+                    <span>Прорезиновый пластик</span>
+                </label>
+            </div>
+            <div class="checkbox1" style="display: @(ViewBag.CategoryPnevma == "Пневматическое оружие" ? "flex" : "none");">
+                <span>Тип пневматики:</span>
+                <label>
+                    <input type="checkbox" name="pnevmaGaz" value="Газобаллоный" @(ViewBag.PnevmaGaz != null ? "checked" : "")>
+                    <span>Газобаллоный</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="pnevmaPruj" value="Пружинно-поршневая" @(ViewBag.PnevmaPruj != null ? "checked" : "")>
+                    <span>Пружинно-поршневая</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="pnevmaNak" value="С предварительной накачкой" @(ViewBag.PnevmaNak != null ? "checked" : "")>
+                    <span>С предварительной накачкой</span>
+                </label>
+            </div>
+            <div class="checkbox1" style="display: @(ViewBag.CategoryPnevma == "Пневматическое оружие" ? "flex" : "none");">
+                <span>Тип пули:</span>
+                <label>
+                    <input type="checkbox" name="bulletMet" value="Металл" @(ViewBag.BulletMet != null ? "checked" : "")>
+                    <span>Металл</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="bulletMP" value="Металл/пластик" @(ViewBag.BulletMP != null ? "checked" : "")>
+                    <span>Металл/пластик</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="bulletRez" value="Резиновые" @(ViewBag.BulletRez != null ? "checked" : "")>
+                    <span>Резиновые</span>
+                </label>
+            </div>
+            <div class="checkbox1" style="display: @(ViewBag.CategoryPnevma == "Пневматическое оружие" ? "flex" : "none");">
+                <span>Мощность:</span>
+                <label>
+                    <input type="checkbox" name="power3" value=3 @(ViewBag.Power3 != null ? "checked" : "")>
+                    <span>3 Дж</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="power7" value=7 @(ViewBag.Power7 != null ? "checked" : "")>
+                    <span>7 Дж</span>
+                </label>
+            </div>
+            @if (ViewBag.CategoryCold == "Холодное оружие")
+            {
+                <div class="checkbox1" style="display: @(ViewBag.CategoryCold == "Холодное оружие" ? "flex" : "none");">
+                    <label for="minLen">Минимальная длина:</label>
+                    <input type="range" id="minLen" name="minLen" min="@ViewBag.MinLen" max="@(ViewBag.MaxLen)" value="@ViewBag.MinLen" step="2" oninput="updateValue2(this.value)">
+                    <div id="minValue" class="parameter-value">Значение: <span id="minValue22"></span></div>
+                    <label for="maxLen">Максимальная длина:</label>
+                    <input type="range" id="maxLen" name="maxLen" min="@ViewBag.MinLen" max="@(ViewBag.MaxLen)" value="@ViewBag.MaxLen" step="2" oninput="updateValue22(this.value)">
+                    <div id="maxValue" class="parameter-value">Значение: <span id="maxValue22"></span></div>
+
+                    <script>
+                        // Функция для обновления значения ползунка
+                        function updateValue2(value) {
+                            document.getElementById('minValue22').innerText = value;
+                        }
+                        function updateValue22(value) {
+                            document.getElementById('maxValue22').innerText = value;
+                        }
+                        var minLen = $('#minLen').val();
+                        var maxLen = $('#maxLen').val();
+                        $(minValue22).text(minLen);
+                        $(maxValue22).text(maxLen);
+
+                    </script>
+                </div>
+            }
+            @if (ViewBag.CategoryFire == "Огнестрельное оружие" || ViewBag.CategoryPnevma == "Пневматическое оружие")
+            {
+                <div class="checkbox1" style="display: @(ViewBag.CategoryFire == "Огнестрельное оружие" || ViewBag.CategoryPnevma == "Пневматическое оружие" ? "flex" : "none");">
+                    <label for="minRan">Минимальная дальность:</label>
+                    <input type="range" id="minRan" name="minRan" min="@ViewBag.MinRan" max="@(ViewBag.MaxRan)" value="@ViewBag.MinRan" step="2" oninput="updateValue22(this.value)">
+                    <div id="minValue" class="parameter-value">Значение: <span id="minValue222"></span></div>
+                    <label for="maxRan">Максимальная дальность:</label>
+                    <input type="range" id="maxRan" name="maxRan" min="@ViewBag.MinRan" max="@(ViewBag.MaxRan)" value="@ViewBag.MaxRan" step="2" oninput="updateValue222(this.value)">
+                    <div id="maxValue" class="parameter-value">Значение: <span id="maxValue222"></span></div>
+
+                    <script>
+                        // Функция для обновления значения ползунка
+                        function updateValue22(value) {
+                            document.getElementById('minValue222').innerText = value;
+                        }
+                        function updateValue222(value) {
+                            document.getElementById('maxValue222').innerText = value;
+                        }
+                        var minRan = $('#minRan').val();
+                        var maxRan = $('#maxRan').val();
+                        $(minValue222).text(minRan);
+                        $(maxValue222).text(maxRan);
+
+                    </script>
+                </div>
+            }
+            <input type="submit" value="Применить" />
+        </form>
+        <form method="post" asp-action="Index" asp-controller="Home">
+            <input type="submit" value="Сбросить" />
+        </form>
+    </div>
+    <div class="flex">
+		@foreach (var item in Model)
+		{
+			<div class="flex-item">
+				<div class="product_img"><img class="img_photo" src="images/@item.Image" /></div>
+				<div class="product_name">
+					<a href="@Url.Action("Details", new { id = item.Id })">
+						<h2>@item.Brand @item.Model</h2>
+					</a>
+				</div>
+				<div class="product-text">
+					@item.Description
+				</div>
+				<div class="product-category">
+					<a>@item.Category</a>
+				</div>
+				<div class="product_price">
+					@item.Price<span>&#8381</span>
+				</div>
+
+				@if (ViewBag.Cart != null)
+				{
+					var isInCart = false;
+
+					foreach (var item1 in ViewBag.Cart)
+					{
+						if (item1.product.Id == item.Id)
+						{
+							isInCart = true;
+							break;
+						}
+					}
+
+					if (isInCart)
+					{
+						<div>
+							<button class="buttonclicked" title="Добавить еще в корзину?" onclick="location.href='/Cart/Add?Id=@item.Id'">Товар уже в корзине</button>
+						</div>
+					}
+					else
+					{
+						<div>
+							<button class="button" onclick="location.href='/Cart/Add?Id=@item.Id'">Добавить в корзину</button>
+						</div>
+					}
+				}
+				else
+				{
+					<div>
+						<button class="button" onclick="location.href='/Cart/Add?Id=@item.Id'">Добавить в корзину</button>
+					</div>
+				}
+			</div>
+		}
+
+	</div>
+</div>
+@(Context.Session.Get<ProductModel>("Name"))

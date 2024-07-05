@@ -1,0 +1,59 @@
+﻿@model List<User>
+
+<div class="container1">
+	<h1>Список пользователей</h1>
+	<div class ="create1">
+		<button class="dob" onclick="location.href='/Admin/CreateUser'">Добавить</button>
+	</div>
+	<div class="user-card">
+        <div class="user-card__name">Ф И О</div>
+        <div class="user-card__email">Email</div>
+        <div class="user-card__phone">Телефон</div>
+        <div class="user-card__address">Aдрес</div>
+        <div class="user-card__role">Админ права</div>
+		<div class="user-card__phone">Логин</div>
+		<div class="user-card__phone">Пароль</div>
+    </div>
+    @foreach (var user in Model)
+    {
+        <div class="user-card">
+            <div class="user-card__name">
+				<div>@user.FirstName</div> 
+				<div>@user.LastName</div> 
+				<div>@user.MiddleName</div> 
+			</div>
+            <div class="user-card__email">@user.Email</div>
+            <div class="user-card__phone">@user.Phone</div>
+            @if (user.Address != null)
+            {
+                <div class="user-card__address">@user.Address</div>
+            }
+			@if (user.Address == null)
+            {
+                <div class="user-card__address">Отсуствует</div>
+            }
+            @if (user.Role != null)
+            {
+				if(user.Role ==0)
+				{
+					<div class="user-card__role">Отсуствуют</div>
+				}
+				if(user.Role ==1)
+				{
+					<div class="user-card__role">Присуствуют</div>
+				}  
+            }
+			@if (user.Role == null)
+			{
+				<div class="user-card__role">Сведений нет</div>
+			}
+			<div class="user-card__phone">@user.Login</div>
+			<div class="user-card__password">@user.Password</div>
+        </div>
+		<div class="buttons">
+				<button class="red" onclick="location.href='/Admin/UpdateUser/@user.Id'">Редактировать</button>
+				<button class="del"onclick="if(confirm('Вы уверены, что хотите удалить данного пользователя?')) { location.href='@Url.Action("DeleteUser", new { id = @user.Id })' }">Удалить</button>
+			</div>
+		
+    }
+</div>

@@ -1,0 +1,27 @@
+﻿@model Cart;
+<div class="cartFlex">
+	@if (Model is not null)
+	{
+		<div class="cartHeader">Корзина</div>
+		@foreach (var item in Model.Items)
+		{
+			<div class="cartContainer">
+				<div>Товар: @item.product.Model</div>
+				<div style="display: flex; flex-direction: row; align-items: center;">
+					<a class="cartButton" href="/Cart/UpdateMinus?id=@item.product.Id">-</a>
+					<form action="Update">
+						<input hidden value="@item.product.Id" name="id" />
+						<input value="@item.Count" name="num" type="number" min="1" />
+						<input type="submit" hidden />
+					</form>
+					<a class="cartButton" href="/Cart/UpdatePlus?id=@item.product.Id">+</a>
+				</div>
+				<div>Сумма: @item.Sum</div>
+				<a href="/Cart/Remove?id=@item.product.Id" style="border-radius: 5px; background-color: red; color: white; text-decoration: none; font-size: 16px; padding: 5px;">Удалить</a>
+			</div>
+		}
+		<div>Товаров в корзине: @Model.AllItemsCount</div>
+		<div>Всего на сумму: @Model.Sum</div>
+		<a href="/Cart/OrderDetails">Оформить заказ</a>
+	}
+</div>
